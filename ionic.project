@@ -1,5 +1,5 @@
 {
-  "name": "Ionic Sample",
+  "name": "IonicPoland CLI",
   "app_id": "70d05450",
   "gulpStartupTasks": [
     "sass",
