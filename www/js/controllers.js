@@ -1,6 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, $window, $ionicPlatform) {
+  $scope.isFlashlightAvailable = false;
+
+  $ionicPlatform.ready(function() {
+    window.plugins && window.plugins.flashlight && window.plugins.flashlight.available(function(isAvailable) {
+      $scope.isFlashlightAvailable = true;
+    });
+  });
+
+  $scope.toggleFlashlight = function() {
+    if ($scope.isFlashlightAvailable) {
+      window.plugins.flashlight.toggle();
+    }
+  };
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
